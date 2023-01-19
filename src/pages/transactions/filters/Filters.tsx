@@ -1,22 +1,20 @@
 import React from 'react';
 import { EuiFlexGroup, EuiFlexItem } from '@elastic/eui';
-import Filters from './filters/Filters';
-import Header from './Header';
-import Table from './Table';
+import styles from './Filters.module.css';
+import Search from './Search';
 
-const Transactions: React.FC = () => (
-  <EuiFlexGroup direction="column">
+const Filters: React.FC = () => (
+  <EuiFlexGroup>
     <EuiFlexItem grow={false}>
-      <Header />
+      <Search />
     </EuiFlexItem>
     <EuiFlexItem grow={false}>
-      <Filters />
+      <div className={styles.verticalBar} />
     </EuiFlexItem>
     <EuiFlexItem grow={false}>
-      <Table />
+      <Search />
     </EuiFlexItem>
   </EuiFlexGroup>
 );
 
-export default Transactions;
-
+export default Filters;
