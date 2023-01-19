@@ -1,6 +1,7 @@
 import React from 'react';
 import { EuiFlexGroup, EuiFlexItem } from '@elastic/eui';
 import styles from './Filters.module.css';
+import FilterOptions from './FilterOptions';
 import Search from './Search';
 
 const Filters: React.FC = () => (
@@ -12,7 +13,7 @@ const Filters: React.FC = () => (
       <div className={styles.verticalBar} />
     </EuiFlexItem>
     <EuiFlexItem grow={false}>
-      <Search />
+      <FilterOptions />
     </EuiFlexItem>
   </EuiFlexGroup>
 );
