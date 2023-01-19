@@ -14,7 +14,7 @@ const Search: React.FC = () => {
   }
 
   return (
-    <EuiFormControlLayout {...formControlProps}>
+    <EuiFormControlLayout className="search-bar-form-control" {...formControlProps}>
       <EuiFieldText
         className={styles.fieldText}
         onChange={(event) => setSearchValue(event.target.value)}

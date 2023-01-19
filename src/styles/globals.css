@@ -1,4 +1,3 @@
-.euiFormControlLayoutIcons {
-  border: 3px solid red !important;
+.search-bar-form-control .euiFormControlLayoutIcons {
   top: 8px !important;
 }
