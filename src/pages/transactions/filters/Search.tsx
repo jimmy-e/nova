@@ -18,6 +18,7 @@ const Search: React.FC = () => {
       <EuiFieldText
         className={styles.fieldText}
         onChange={(event) => setSearchValue(event.target.value)}
+        placeholder="Start your search..."
         value={searchValue}
       />
     </EuiFormControlLayout>

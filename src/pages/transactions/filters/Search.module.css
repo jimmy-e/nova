@@ -1,4 +1,10 @@
 .fieldText {
   background-image: none !important;
+  background: #EFEFEF;
+  border-radius: 16px;
+  box-shadow: none !important;
+  font-size: 18px;
+  height: 50px;
   outline: none !important;
+  width: 300px;
 }
