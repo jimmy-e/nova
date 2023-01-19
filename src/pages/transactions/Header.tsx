@@ -10,7 +10,7 @@ const Header: React.FC = () => (
       </EuiText>
     </EuiFlexItem>
     <EuiFlexItem grow={false}>
-      <EuiText>
+      <EuiText color="subdued">
         <h3 className={styles.subtitle}>
           Your business contracts, including fund subscriptions and applications.
         </h3>
