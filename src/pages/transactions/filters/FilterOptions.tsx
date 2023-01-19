@@ -13,7 +13,7 @@ const FilterOptions: React.FC = () => (
     <EuiFlexItem grow={false}>
       <DropdownFilter />
     </EuiFlexItem>
-    <EuiFlexItem grow={false}>
+    <EuiFlexItem>
       <DropdownFilter />
     </EuiFlexItem>
   </EuiFlexGroup>

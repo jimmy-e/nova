@@ -1,21 +1,20 @@
 import React from 'react';
-import { EuiSuperSelect } from '@elastic/eui';
+import { EuiSelect } from '@elastic/eui';
+import styles from './DropdownFilter.module.css';
 
 const DropdownFilter: React.FC = () => {
   const options = [
-    { inputDisplay: 'Alpha', value: 'alpha' },
-    { inputDisplay: 'Beta', value: 'beta' },
-    { inputDisplay: 'Charlie', value: 'charlie' },
-    { inputDisplay: 'Delta', value: 'delta' },
+    { text: 'Alpha', value: 'alpha' },
+    { text: 'Beta', value: 'beta' },
+    { text: 'Charlie', value: 'charlie' },
+    { text: 'Delta', value: 'delta' },
   ];
 
   return (
-    <div>
-      <EuiSuperSelect
-        fullWidth
-        options={options}
-      />
-    </div>
+    <EuiSelect
+      className={styles.select}
+      options={options}
+    />
   );
 };
 
