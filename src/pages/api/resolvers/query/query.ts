@@ -1,5 +1,7 @@
 import transactions from './transactions';
 
-export default {
+const query = {
   transactions,
 };
+
+export default query;

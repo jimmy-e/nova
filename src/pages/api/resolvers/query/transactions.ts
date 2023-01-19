@@ -1,1 +1,3 @@
-export default () => 'bar';
+const transactions = () => 'bar';
+
+export default transactions;

@@ -1,5 +1,7 @@
 import query from './query/query';
 
-export default {
+const resolvers = {
   Query: {...query},
 };
+
+export default resolvers;

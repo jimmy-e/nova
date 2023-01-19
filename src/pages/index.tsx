@@ -3,7 +3,7 @@ import '@elastic/eui/dist/eui_theme_light.css';
 import { EuiProvider } from '@elastic/eui';
 import Transactions from './transactions/Transactions';
 import styles from '@/styles/Home.module.css'
-import styleOverrides from './styleOverrides';
+import styleOverrides from '@/styles/styleOverrides';
 
 const inter = Inter({ subsets: ['latin'] })
 
