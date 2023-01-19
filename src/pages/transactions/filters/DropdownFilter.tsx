@@ -1,8 +1,12 @@
 import React from 'react';
-import { EuiSelect } from '@elastic/eui';
+import { EuiSelect, EuiText } from '@elastic/eui';
 import styles from './DropdownFilter.module.css';
 
-const DropdownFilter: React.FC = () => {
+interface Props {
+  label: string;
+}
+
+const DropdownFilter: React.FC<Props> = ({ label }) => {
   const options = [
     { text: 'Alpha', value: 'alpha' },
     { text: 'Beta', value: 'beta' },
@@ -11,10 +15,15 @@ const DropdownFilter: React.FC = () => {
   ];
 
   return (
-    <EuiSelect
-      className={styles.select}
-      options={options}
-    />
+    <div className={styles.container}>
+      <EuiText className={styles.label}>
+        <p>{label}</p>
+      </EuiText>
+      <EuiSelect
+        className={styles.select}
+        options={options}
+      />
+    </div>
   );
 };
 

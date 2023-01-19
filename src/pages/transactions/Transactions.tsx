@@ -5,7 +5,7 @@ import Header from './Header';
 import Table from './Table';
 
 const Transactions: React.FC = () => (
-  <EuiFlexGroup direction="column">
+  <EuiFlexGroup direction="column" gutterSize="xl">
     <EuiFlexItem grow={false}>
       <Header />
     </EuiFlexItem>

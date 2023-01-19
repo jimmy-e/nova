@@ -11,10 +11,10 @@ const FilterOptions: React.FC = () => (
       </EuiText>
     </EuiFlexItem>
     <EuiFlexItem grow={false}>
-      <DropdownFilter />
+      <DropdownFilter label="Status"/>
     </EuiFlexItem>
     <EuiFlexItem>
-      <DropdownFilter />
+      <DropdownFilter label="Reviewer"/>
     </EuiFlexItem>
   </EuiFlexGroup>
 );
