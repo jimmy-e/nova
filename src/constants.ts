@@ -1,3 +1,5 @@
+export const pageSize = 10;
+
 export const reviewer = [
   { label: 'Tom Cruise', value: 'tomCruise' },
   { label: 'Keanu Reeves', value: 'keanuReeves' },
