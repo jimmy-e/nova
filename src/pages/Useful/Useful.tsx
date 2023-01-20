@@ -10,6 +10,18 @@ const Useful: React.FC =() => {
   const [favorites, setFavorites] = useState<Array<string>>([]);
   const url = 'https://api.coincap.io/v2/assets';
 
+  const ws = new WebSocket('wss://ws.coincap.io/trades/binance');
+  console.log('0000000000');
+  console.log(ws);
+  console.log(ws.onmessage);
+  console.log('0000000000');
+  // ws.onmessage = evt => {
+  //   // listen to data sent from the websocket server
+  //   const message = JSON.parse(evt.data)
+  //   this.setState({dataFromServer: message})
+  //   console.log(message)
+  // }
+
   const pageSize = 25;
 
   useEffect(() => {
@@ -51,10 +63,6 @@ const Useful: React.FC =() => {
   if (isLoading) {
     return <EuiLoadingSpinner size="xl" />;
   }
-
-  console.log('-------------');
-  console.log(favorites);
-  console.log('-------------');
 
   return (
     <TableContainer
