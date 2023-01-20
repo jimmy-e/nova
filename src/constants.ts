@@ -6,7 +6,7 @@ export const progress = [
   { label: 'Completed', value: 'completed' },
 ];
 
-export const status = [
+export const state = [
   { label: 'Pending', value: 'pending' },
   { label: 'Submitted', value: 'submitted' },
   { label: 'Approved', value: 'approved' },

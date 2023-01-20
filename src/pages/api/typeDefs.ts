@@ -5,15 +5,15 @@ export default gql`
     
     type Transaction {
         id: String!
-        created_at: Int!
+        created_at: String!
         sender_entity_handle: String!
         template_name: String!
         first_recipient_name: String
         first_recipient_email: String
-        first_recipient_completed_at: Int 
+        first_recipient_completed_at: String
         state: String!
         progress: Int!
-        latest_state_change_at: Int!
+        latest_state_change_at: String!
         reviewer_names: [String]
     }
 
