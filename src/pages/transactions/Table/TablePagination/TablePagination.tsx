@@ -1,6 +1,8 @@
 import React from 'react';
 import { EuiFlexGroup, EuiFlexItem, EuiButtonEmpty, EuiText } from '@elastic/eui';
-import { pageSize } from '@/constants';
+import { maxPageDisplay, pageSize } from '@/constants';
+import TablePageNumbersComplex from './TablePageNumbersComplex';
+import TablePageNumbersSimple from './TablePageNumbersSimple';
 
 interface Props {
   dataLength: number;
@@ -19,7 +21,10 @@ const TablePagination: React.FC<Props> = ({ dataLength }) => {
         </EuiButtonEmpty>
       </EuiFlexItem>
       <EuiFlexItem grow={false}>
-        <EuiButtonEmpty>Previous</EuiButtonEmpty>
+        {maxPageDisplay < nPages
+          ? <TablePageNumbersComplex nPages={nPages} />
+          : <TablePageNumbersSimple nPages={nPages} />
+        }
       </EuiFlexItem>
       <EuiFlexItem grow={false}>
         <EuiButtonEmpty>
