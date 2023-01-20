@@ -4,6 +4,7 @@ import { TableRow } from '@/types';
 import TableCellInvitedBy from './TableCellInvitedBy';
 import TableCellLastUpdated from './TableCellLastUpdated';
 import TableCellRecipient from './TableCellRecipient';
+import TableCellReviewer from './TableCellReviewer';
 import TableCellTemplate from './TableCellTemplate';
 import TableCellUniqueID from './TableCellUniqueID';
 
@@ -22,6 +23,8 @@ const TableCell: React.FC<Props> = ({ columnKey, item }) => {
       return <TableCellLastUpdated cell={cell} />;
     case 'recipient':
       return <TableCellRecipient cell={cell} />;
+    case 'reviewers':
+      return <TableCellReviewer cell={cell} />;
     case 'template':
       return <TableCellTemplate cell={cell} />;
     case 'unique_id':

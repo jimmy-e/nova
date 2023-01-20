@@ -1,0 +1,29 @@
+.container {
+  border-radius: 32px;
+  padding: 8px 16px;
+}
+
+.tomCruise {
+  background: #E9F8F6;
+  color: #2BBEA8;
+}
+
+.keanuReeves {
+  background: #FFF3F3;
+  color: #F35959;
+}
+
+.emmaStone {
+  background: #F1ECFE;
+  color: #7144F2;
+}
+
+.milaKunis {
+  background: #FEF8ED;
+  color: #F6BE4F;
+}
+
+.sandraBullock {
+  background: #EBF8FF;
+  color: #3182CE;
+}

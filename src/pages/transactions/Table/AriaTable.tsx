@@ -29,11 +29,14 @@ const AriaTable: React.FC<TableStateProps<object>> = (props) => {
       <tbody>
         {[...collection.body.childNodes].map((row) => (
           <tr key={row.key} className={styles.tr}>
-            {[...row.childNodes].map((cell) =>
-              <td key={cell.key} className={styles.td}>
-                {cell.rendered}
-              </td>
-            )}
+            {[...row.childNodes].map((cell) => {
+              console.log(cell)
+              return (
+                <td key={cell.key} className={styles.td}>
+                  {cell.rendered}
+                </td>
+              )
+            })}
           </tr>
         ))}
       </tbody>
