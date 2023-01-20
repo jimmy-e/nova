@@ -8,7 +8,8 @@ interface Props {
 }
 
 const TableContainer: React.FC<Props> = ({ data }) => {
-  const finalTableData = data.slice(0, 10);
+  // const finalTableData = data.slice(0, 10);
+  const finalTableData = data.slice(0, 100);
 
   return (
     <div className={styles.container}>

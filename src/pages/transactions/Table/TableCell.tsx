@@ -2,6 +2,8 @@ import React from 'react';
 import { EuiFlexGroup, EuiFlexItem, EuiText } from '@elastic/eui';
 import { stateColors } from '@/constants';
 import { TableRow } from '@/types';
+import { startCase } from 'lodash';
+import styles from './TableCell.module.css';
 
 interface Props {
   columnKey: string;
@@ -15,10 +17,15 @@ const TableCell: React.FC<Props> = ({ columnKey, item }) => {
 
   if (columnKey === 'last_updated') {
     return (
-      <EuiFlexGroup direction="column" gutterSize="s">
+      <EuiFlexGroup direction="column" gutterSize="xs">
         <EuiFlexItem grow={false}>
-          <EuiText color={stateColors[cell.status]}>
-            {cell.status.toUpperCase()}
+          <EuiText
+            className={styles[stateColors[cell.status]]}
+            color={cell.status === 'invited' ? 'subdued' : undefined}
+          >
+            <b>
+              {startCase(cell.status)}
+            </b>
           </EuiText>
         </EuiFlexItem>
         <EuiFlexItem grow={false}>

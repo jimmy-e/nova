@@ -9,7 +9,7 @@ export const reviewer = [
 export const state = [
   { label: 'Created', value: 'created' },
   { label: 'Invited', value: 'invited' },
-  { label: 'In Progress', value: 'In Progress' },
+  { label: 'In Progress', value: 'inProgress' },
   { label: 'Submitted', value: 'submitted' },
   { label: 'Pending', value: 'pending' },
   { label: 'Completed', value: 'completed' },
