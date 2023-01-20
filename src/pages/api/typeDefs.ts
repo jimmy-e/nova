@@ -6,15 +6,16 @@ export default gql`
     type Transaction {
         id: String!
         created_at: String!
-        sender_entity_handle: String!
-        template_name: String!
-        first_recipient_name: String
-        first_recipient_email: String
         first_recipient_completed_at: String
-        state: String!
-        progress: Int!
+        first_recipient_email: String
+        first_recipient_name: String
+        invited_by: String!
         latest_state_change_at: String!
+        progress: Int!
         reviewer_names: [String]
+        sender_entity_handle: String!
+        state: String!
+        template_name: String!
     }
 
     # ----- QUERY ----- #
