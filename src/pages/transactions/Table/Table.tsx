@@ -7,7 +7,7 @@ import {
   TableHeader,
 } from '@react-stately/table';
 import AriaTable from './AriaTable';
-import TableCell from './TableCell';
+import TableCell from './TableCell/TableCell';
 import { TableData, TableRow } from '@/types';
 import { daysAgo } from '@/utils';
 
@@ -33,7 +33,10 @@ const Table: React.FC<Props> = ({ data }) => {
         days_ago: daysAgo(transaction.latest_state_change_at),
         status: transaction.state,
       },
-      recipient: transaction.first_recipient_name || '',
+      recipient: {
+        email: transaction.first_recipient_email || '',
+        name: transaction.first_recipient_name || '',
+      },
       reviewers: transaction.reviewer_names || [],
       template: transaction.template_name,
       unique_id: transaction.id,
@@ -52,7 +55,11 @@ const Table: React.FC<Props> = ({ data }) => {
       <TableBody items={rows}>
         {(item) => (
           <Row>
-            {(columnKey) => <Cell><TableCell columnKey={columnKey} item={item} /></Cell>}
+            {(columnKey) => (
+              <Cell>
+                <TableCell columnKey={columnKey} item={item} />
+              </Cell>
+            )}
           </Row>
         )}
       </TableBody>

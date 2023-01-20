@@ -18,6 +18,8 @@ export interface ServerContext {
   };
 }
 
+export type TableCell = Record<string, string>;
+
 export type TableData = Array<Transaction>;
 
 export interface TableRow {
@@ -27,7 +29,10 @@ export interface TableRow {
     days_ago: string;
     status: string;
   };
-  recipient: string;
+  recipient: {
+    email: string;
+    name: string;
+  };
   reviewers: Array<string>;
   template: string;
   unique_id: string;

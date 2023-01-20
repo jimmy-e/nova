@@ -5,15 +5,16 @@ export const GET_TRANSACTIONS = gql`
       transactions(params: "foo") {
           id
           created_at
-          sender_entity_handle
-          template_name
-          first_recipient_name
-          first_recipient_email
           first_recipient_completed_at
-          state
-          progress
+          first_recipient_email
+          first_recipient_name
+          invited_by
           latest_state_change_at
+          progress
           reviewer_names
+          sender_entity_handle
+          state
+          template_name
       }
   }
 `;
