@@ -9,7 +9,7 @@ import Useful from './Useful/Useful';
 const App: React.FC =() => (
   <EuiProvider colorMode="light" modify={styleOverrides}>
     <div className={styles.main}>
-      <Transactions />
+      <Useful />
     </div>
   </EuiProvider>
 );
