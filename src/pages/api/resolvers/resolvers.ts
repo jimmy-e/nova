@@ -1,7 +1,9 @@
-import query from './query/query';
+import transactions from './transactions';
 
 const resolvers = {
-  Query: { ...query },
+  Query: {
+    transactions,
+  },
 };
 
 export default resolvers;

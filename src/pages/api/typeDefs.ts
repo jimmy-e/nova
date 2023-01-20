@@ -20,6 +20,6 @@ export default gql`
     # ----- QUERY ----- #
     
     type Query {
-        transactions: [Transaction!]!
+        transactions(params: String): [Transaction!]!
     }
 `;

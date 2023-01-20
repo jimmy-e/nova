@@ -1,14 +1,15 @@
 import { v4 as uuidv4 } from 'uuid';
 import { Transaction } from '@/types';
+import { shuffle } from 'lodash';
 import { faker } from '@faker-js/faker'
-import { progress, state } from '@/constants';
-import { arrayRandom, nArray } from '@/utils';
+import { progress, reviewer, state } from '@/constants';
+import { arrayRandom } from '@/utils';
 
 const generateTransaction = (): Transaction => {
   const firstName = faker.name.firstName();
 
   const nReviewers = Math.floor(Math.random() * 5) + 1;
-  const reviewers = nArray(nReviewers).map(() => faker.name.fullName());
+  const reviewers = shuffle(reviewer).slice(0, nReviewers).map((reviewer) => reviewer.value);
 
   return {
     id: uuidv4(),

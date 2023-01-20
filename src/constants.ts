@@ -6,6 +6,14 @@ export const progress = [
   { label: 'Completed', value: 5 },
 ];
 
+export const reviewer = [
+  { label: 'Tom Cruise', value: 'tomCruise' },
+  { label: 'Keanu Reeves', value: 'keanuReeves' },
+  { label: 'Emma Stone', value: 'emmaStone' },
+  { label: 'Mila Kunis', value: 'milaKunis' },
+  { label: 'Sandra Bullock', value: 'sandraBullock' },
+];
+
 export const state = [
   { label: 'Pending', value: 'pending' },
   { label: 'Submitted', value: 'submitted' },
