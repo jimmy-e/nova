@@ -1,14 +1,14 @@
 import React from 'react';
 import {
-  Row,
+  Cell,
   Column,
-  TableHeader,
+  Row,
   TableBody,
-  Cell, TableHeader as AriaTableHeader
+  TableHeader,
 } from '@react-stately/table';
 import AriaTable from './AriaTable';
 import { TableData } from '@/types';
-// import TableHeader from './TableHeader';
+import { daysAgo } from '@/utils';
 
 interface Props {
   data: TableData;
@@ -24,15 +24,17 @@ const Table: React.FC<Props> = ({ data }) => {
     { name: 'Unique ID', uid: 'unique_id' },
   ];
 
-  const rows = data.map((transaction, id) => ({
-    id: id + 1,
-    invited_by: transaction.invited_by,
-    last_updated: transaction.latest_state_change_at,
-    recipient: transaction.first_recipient_name,
-    reviewers: transaction.reviewer_names,
-    template: transaction.template_name,
-    unique_id: transaction.id,
-  }));
+  const rows = data.map((transaction, id) => {
+    return {
+      id: id + 1,
+      invited_by: transaction.invited_by,
+      last_updated: daysAgo(transaction.latest_state_change_at),
+      recipient: transaction.first_recipient_name,
+      reviewers: transaction.reviewer_names,
+      template: transaction.template_name,
+      unique_id: transaction.id,
+    };
+  });
 
   return (
     <AriaTable>
