@@ -1,9 +1,9 @@
 export const progress = [
-  { label: 'Ready', value: 'ready' },
-  { label: 'Assessing', value: 'assessing' },
-  { label: 'In Progress', value: 'inProgress' },
-  { label: 'In Review', value: 'inReview' },
-  { label: 'Completed', value: 'completed' },
+  { label: 'Ready', value: 1 },
+  { label: 'Assessing', value: 2 },
+  { label: 'In Progress', value: 3 },
+  { label: 'In Review', value: 4 },
+  { label: 'Completed', value: 5 },
 ];
 
 export const state = [

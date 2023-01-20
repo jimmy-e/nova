@@ -18,8 +18,8 @@ const generateTransaction = (): Transaction => {
     first_recipient_name: firstName,
     first_recipient_email: faker.internet.email(firstName),
     first_recipient_completed_at: faker.date.between('2022-11-01', '2022-11-30').toISOString(),
-    state: arrayRandom(state),
-    progress: arrayRandom(progress),
+    state: arrayRandom(state).value,
+    progress: arrayRandom(progress).value,
     latest_state_change_at: faker.date.between('2022-12-01', '2022-12-31').toISOString(),
     reviewer_names: reviewers,
   };
