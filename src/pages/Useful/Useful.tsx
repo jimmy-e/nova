@@ -7,6 +7,7 @@ const Useful: React.FC =() => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [pageN, setPageN] = useState<number>(0);
   const [data, setData] = useState();
+  const [favorites, setFavorites] = useState<Array<string>>([]);
   const url = 'https://api.coincap.io/v2/assets';
 
   const pageSize = 25;
@@ -39,15 +40,29 @@ const Useful: React.FC =() => {
     setPageN((previous) => previous + 1);
   };
 
+  const handleFavorite = (coinName: string) => {
+    if (favorites.includes(coinName)) {
+      setFavorites((previous) => previous.filter((i) => i !== coinName));
+    } else {
+      setFavorites((previous) => previous.concat(coinName));
+    }
+  }
+
   if (isLoading) {
     return <EuiLoadingSpinner size="xl" />;
   }
+
+  console.log('-------------');
+  console.log(favorites);
+  console.log('-------------');
 
   return (
     <TableContainer
       data={data}
       onNext={handleNext}
       onPrevious={handlePrevious}
+      onFavorite={handleFavorite}
+      favorites={favorites}
     />
   );
 };
