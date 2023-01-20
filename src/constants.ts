@@ -1,11 +1,3 @@
-export const progress = [
-  { label: 'Ready', value: 1 },
-  { label: 'Assessing', value: 2 },
-  { label: 'In Progress', value: 3 },
-  { label: 'In Review', value: 4 },
-  { label: 'Completed', value: 5 },
-];
-
 export const reviewer = [
   { label: 'Tom Cruise', value: 'tomCruise' },
   { label: 'Keanu Reeves', value: 'keanuReeves' },
@@ -15,9 +7,19 @@ export const reviewer = [
 ];
 
 export const state = [
-  { label: 'Pending', value: 'pending' },
+  { label: 'Created', value: 'created' },
+  { label: 'Invited', value: 'invited' },
+  { label: 'In Progress', value: 'In Progress' },
   { label: 'Submitted', value: 'submitted' },
-  { label: 'Approved', value: 'approved' },
-  { label: 'Declined', value: 'declined' },
-  { label: 'Paid', value: 'paid' },
+  { label: 'Pending', value: 'pending' },
+  { label: 'Completed', value: 'completed' },
 ];
+
+export const stateColors: Record<string, string> = {
+  created: 'text',
+  invited: 'subdued',
+  inProgress: 'warning',
+  submitted: 'success',
+  pending: 'danger',
+  completed: 'text',
+};

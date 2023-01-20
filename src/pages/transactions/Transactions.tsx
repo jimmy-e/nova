@@ -13,7 +13,6 @@ const Transactions: React.FC = () => {
 
   const { data, loading } = useQuery<GetTransactionsData>(GET_TRANSACTIONS);
 
-  console.log(data)
   return (
     <EuiFlexGroup direction="column" gutterSize="xl">
       <EuiFlexItem grow={false}>

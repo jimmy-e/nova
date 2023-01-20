@@ -7,7 +7,8 @@ import {
   TableHeader,
 } from '@react-stately/table';
 import AriaTable from './AriaTable';
-import { TableData } from '@/types';
+import TableCell from './TableCell';
+import { TableData, TableRow } from '@/types';
 import { daysAgo } from '@/utils';
 
 interface Props {
@@ -24,13 +25,16 @@ const Table: React.FC<Props> = ({ data }) => {
     { name: 'Unique ID', uid: 'unique_id' },
   ];
 
-  const rows = data.map((transaction, id) => {
+  const rows = data.map((transaction, id): TableRow => {
     return {
       id: id + 1,
       invited_by: transaction.invited_by,
-      last_updated: daysAgo(transaction.latest_state_change_at),
-      recipient: transaction.first_recipient_name,
-      reviewers: transaction.reviewer_names,
+      last_updated: {
+        days_ago: daysAgo(transaction.latest_state_change_at),
+        status: transaction.state,
+      },
+      recipient: transaction.first_recipient_name || '',
+      reviewers: transaction.reviewer_names || [],
       template: transaction.template_name,
       unique_id: transaction.id,
     };
@@ -48,7 +52,7 @@ const Table: React.FC<Props> = ({ data }) => {
       <TableBody items={rows}>
         {(item) => (
           <Row>
-            {(columnKey) => <Cell>{item[columnKey]}</Cell>}
+            {(columnKey) => <Cell><TableCell columnKey={columnKey} item={item} /></Cell>}
           </Row>
         )}
       </TableBody>
