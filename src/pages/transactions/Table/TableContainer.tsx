@@ -3,15 +3,15 @@ import { TableData } from '@/types';
 import { EuiFlexGroup, EuiFlexItem, EuiLoadingSpinner } from '@elastic/eui';
 import Table from './Table';
 import TablePagination from './TablePagination/TablePagination';
-import { pageSize } from '@/constants';
 import styles from './TableContainer.module.css';
 
 interface Props {
   data?: TableData;
   loading: boolean;
+  pageSize: number;
 }
 
-const TableContainer: React.FC<Props> = ({ data, loading }) => {
+const TableContainer: React.FC<Props> = ({ data, loading, pageSize }) => {
   if (loading || !data) {
     return (
       <EuiFlexGroup className={styles.container} alignItems="center" justifyContent="center">

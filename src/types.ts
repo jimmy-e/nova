@@ -1,9 +1,10 @@
 import { Dispatch, SetStateAction } from 'react';
 
 export interface AppState {
-  recipient: StateMutable<string>;
-  reviewer: StateMutable<string>;
-  state: StateMutable<string>;
+  pageSize: StateMutable<10 | 25 | 100>
+  recipient: StateMutable<string | undefined>;
+  reviewer: StateMutable<string | undefined>;
+  state: StateMutable<string | undefined>;
 }
 
 export interface GetTransactionsData {
@@ -25,8 +26,8 @@ export interface ServerContext {
 }
 
 export interface StateMutable<T> {
-  state?: T;
-  setState: Dispatch<SetStateAction<T | undefined>>;
+  state: T;
+  setState: Dispatch<SetStateAction<T>>;
 }
 
 export type TableCell = Record<string, string>;

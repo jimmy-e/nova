@@ -26,7 +26,7 @@ const AriaTable: React.FC<TableStateProps<object>> = (props) => {
           </tr>
         ))}
       </thead>
-      <tbody>
+      <tbody className={styles.tbody}>
         {[...collection.body.childNodes].map((row) => (
           <tr key={row.key} className={styles.tr}>
             {[...row.childNodes].map((cell) => (

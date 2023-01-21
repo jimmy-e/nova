@@ -1,6 +1,7 @@
 import React from 'react';
 import { EuiFlexGroup, EuiFlexItem, EuiButtonEmpty, EuiText } from '@elastic/eui';
-import { maxPageDisplay, pageSize } from '@/constants';
+import { maxPageDisplay } from '@/constants';
+import { useAppContext } from '@/context/appContext';
 import TablePageNumbersComplex from './TablePageNumbersComplex';
 import TablePageNumbersSimple from './TablePageNumbersSimple';
 
@@ -9,7 +10,8 @@ interface Props {
 }
 
 const TablePagination: React.FC<Props> = ({ dataLength }) => {
-  const nPages = Math.ceil(dataLength / pageSize);
+  const { pageSize } = useAppContext();
+  const nPages = Math.ceil(dataLength / pageSize.state);
 
   return (
     <EuiFlexGroup justifyContent="spaceBetween">

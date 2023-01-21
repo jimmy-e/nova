@@ -9,7 +9,7 @@ import Header from './Header';
 import TableContainer from './Table/TableContainer';
 
 const Transactions: React.FC = () => {
-  const { recipient, reviewer, state } = useAppContext();
+  const { pageSize, recipient, reviewer, state } = useAppContext();
 
   const { data, loading } = useQuery<GetTransactionsData, GetTransactionsArgs>(
     GET_TRANSACTIONS,
@@ -33,7 +33,7 @@ const Transactions: React.FC = () => {
         <Filters />
       </EuiFlexItem>
       <EuiFlexItem grow={false}>
-        <TableContainer data={data?.transactions} loading={loading}/>
+        <TableContainer data={data?.transactions} loading={loading} pageSize={pageSize.state}/>
       </EuiFlexItem>
     </EuiFlexGroup>
   );

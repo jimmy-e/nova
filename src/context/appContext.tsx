@@ -2,6 +2,10 @@ import React from 'react';
 import { AppState } from '@/types';
 
 const initialAppState: AppState = {
+  pageSize: {
+    setState: () => {},
+    state: 10,
+  },
   recipient: {
     setState: () => {},
     state: undefined,
@@ -19,6 +23,7 @@ const initialAppState: AppState = {
 const AppContext = React.createContext<AppState>(initialAppState);
 
 export const AppContextProvider = (props: object): React.ReactElement => {
+  const [pageSize, setPageSize] = React.useState<10 | 25 | 100>(10);
   const [recipient, setRecipient] = React.useState<string>();
   const [reviewer, setReviewer] = React.useState<string>();
   const [state, setState] = React.useState<string>();
@@ -26,6 +31,10 @@ export const AppContextProvider = (props: object): React.ReactElement => {
   return (
     <AppContext.Provider
       value={{
+        pageSize: {
+          setState: setPageSize,
+          state: pageSize,
+        },
         recipient: {
           setState: setRecipient,
           state: recipient,

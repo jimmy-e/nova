@@ -1,5 +1,4 @@
 export const maxPageDisplay = 7;
-export const pageSize = 10;
 
 export const reviewers = [
   { label: 'Tom Cruise', value: 'tomCruise' },
