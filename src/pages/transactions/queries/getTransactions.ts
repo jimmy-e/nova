@@ -15,6 +15,7 @@ export const GET_TRANSACTIONS = gql`
               reviewer_names
               sender_entity_handle
               state
+              template_child_name
               template_name
           }
           valid_entries

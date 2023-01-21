@@ -2,7 +2,7 @@ import { TransactionsQuery } from '@/types';
 
 const transactions: TransactionsQuery = (_, args, { dataSources }) => {
   const {
-    // page,
+    page_number,
     page_size,
     recipient_name,
     reviewer_name,
@@ -27,7 +27,9 @@ const transactions: TransactionsQuery = (_, args, { dataSources }) => {
     transactions = transactions.filter((transaction) => transaction.state === state);
   }
 
-  let transactionsPage = [...transactions].slice(0, page_size);
+  const pageStart = (page_number - 1) * page_size;
+  const pageEnd = page_number * page_size;
+  let transactionsPage = [...transactions].slice(pageStart, pageEnd);
 
   return {
     transactions: transactionsPage,

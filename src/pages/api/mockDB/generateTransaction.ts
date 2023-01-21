@@ -23,6 +23,7 @@ const generateTransaction = (): Transaction => {
     reviewer_names: finalReviewers,
     sender_entity_handle: faker.internet.email(),
     state: arrayRandom(states).value,
+    template_child_name: faker.lorem.words(4),
     template_name: faker.internet.domainWord(),
   };
 };

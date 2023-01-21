@@ -17,6 +17,10 @@ const initialAppState: AppState = {
     },
   },
   pagination: {
+    pageNumber: {
+      setState: () => {},
+      state: 1,
+    },
     pageSize: {
       setState: () => {},
       state: 10,
@@ -31,6 +35,7 @@ const initialAppState: AppState = {
 const AppContext = React.createContext<AppState>(initialAppState);
 
 export const AppContextProvider = (props: object): React.ReactElement => {
+  const [pageNumber, setPageNumber] = React.useState<number>(1);
   const [pageSize, setPageSize] = React.useState<PageSize>(10);
   const [recipient, setRecipient] = React.useState<string>();
   const [reviewer, setReviewer] = React.useState<string>();
@@ -55,6 +60,10 @@ export const AppContextProvider = (props: object): React.ReactElement => {
           },
         },
         pagination: {
+          pageNumber: {
+            setState: setPageNumber,
+            state: pageNumber,
+          },
           pageSize: {
             setState: setPageSize,
             state: pageSize,

@@ -7,6 +7,7 @@ export interface AppState {
     state: StateMutable<string | undefined>;
   };
   pagination: {
+    pageNumber: StateMutable<number>;
     pageSize: StateMutable<PageSize>
     validEntries: StateMutable<number>;
   };
@@ -18,6 +19,7 @@ export interface GetTransactionsData {
 
 export interface GetTransactionsArgs {
   input: {
+    page_number: number;
     page_size: PageSize;
     recipient_name?: string;
     reviewer_name?: string;
@@ -54,7 +56,10 @@ export interface TableRow {
     name: string;
   };
   reviewers: Array<string>;
-  template: string;
+  template: {
+    child_name: string;
+    name: string;
+  };
   unique_id: string;
 }
 
@@ -70,6 +75,7 @@ export interface Transaction {
   reviewer_names?: string[];
   sender_entity_handle: string;
   state: string;
+  template_child_name: string;
   template_name: string;
 }
 

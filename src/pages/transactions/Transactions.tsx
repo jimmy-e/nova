@@ -17,6 +17,7 @@ const Transactions: React.FC = () => {
       onCompleted: (result) => pagination.validEntries.setState(result.transactions.valid_entries),
       variables: {
         input: {
+          page_number: pagination.pageNumber.state,
           page_size: pagination.pageSize.state,
           recipient_name: filters.recipient.state,
           reviewer_name: filters.reviewer.state,

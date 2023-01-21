@@ -4,6 +4,7 @@ export default gql`
     # ----- INPUTS ----- #
     
     input TransactionsInput {
+        page_number: Int!
         page_size: Int!
         recipient_name: String
         reviewer_name: String
@@ -24,6 +25,7 @@ export default gql`
         reviewer_names: [String]
         sender_entity_handle: String!
         state: String!
+        template_child_name: String!
         template_name: String!
     }
     

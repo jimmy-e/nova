@@ -1,21 +1,21 @@
 import React from 'react';
 import { EuiFlexGroup, EuiFlexItem, EuiText } from '@elastic/eui';
-import { faker } from '@faker-js/faker'
+import { TableCell } from '@/types';
 
 interface Props {
-  cell: string;
+  cell: TableCell;
 }
 
 const TableCellTemplate: React.FC<Props> = ({ cell }) => (
   <EuiFlexGroup direction="column" gutterSize="xs">
     <EuiFlexItem grow={false}>
       <EuiText>
-        <b>{cell}</b>
+        <b>{cell.name}</b>
       </EuiText>
     </EuiFlexItem>
     <EuiFlexItem grow={false}>
       <EuiText size="xs">
-        {faker.lorem.words(4)}
+        {cell.child_name}
       </EuiText>
     </EuiFlexItem>
   </EuiFlexGroup>

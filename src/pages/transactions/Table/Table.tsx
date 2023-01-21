@@ -38,7 +38,10 @@ const Table: React.FC<Props> = ({ data }) => {
         name: transaction.first_recipient_name || '',
       },
       reviewers: transaction.reviewer_names || [],
-      template: transaction.template_name,
+      template: {
+        child_name: transaction.template_child_name,
+        name: transaction.template_name,
+      },
       unique_id: transaction.id,
     };
   });

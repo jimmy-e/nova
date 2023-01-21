@@ -1,5 +1,5 @@
 import React from 'react';
-import { EuiFieldText, EuiFormControlLayout } from '@elastic/eui';
+import { EuiFieldText, EuiFormControlLayout, EuiText } from '@elastic/eui';
 import { useAppContext } from '@/context/appContext';
 import styles from './Search.module.css';
 
@@ -15,14 +15,19 @@ const Search: React.FC = () => {
   }
 
   return (
-    <EuiFormControlLayout className="search-bar-form-control" {...formControlProps}>
-      <EuiFieldText
-        className={styles.fieldText}
-        onChange={(event) => setState(event.target.value)}
-        placeholder="Start your search..."
-        value={state}
-      />
-    </EuiFormControlLayout>
+    <div className={styles.container}>
+      <EuiText className={styles.label}>
+        <p>Recipient</p>
+      </EuiText>
+      <EuiFormControlLayout className="search-bar-form-control" {...formControlProps}>
+        <EuiFieldText
+          className={styles.fieldText}
+          onChange={(event) => setState(event.target.value)}
+          placeholder="Start your search..."
+          value={state}
+        />
+      </EuiFormControlLayout>
+    </div>
   );
 };
 
