@@ -1,6 +1,7 @@
 import React from 'react';
 import Dropdown from '@/pages/transactions/components/Dropdown';
-import {useAppContext} from '@/context/appContext';
+import { useAppContext } from '@/context/appContext';
+import { PageSize } from '@/types';
 
 const pageSizeOptions = [
   { text: '10', value: 10 },
@@ -14,7 +15,7 @@ const PageSize: React.FC = () => {
   return (
     <Dropdown
       label="Page Size"
-      onChange={(value) => setState(value)}
+      onChange={(value) => setState(Number(value) as PageSize)}
       options={pageSizeOptions}
       value={state}
     />

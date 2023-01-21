@@ -16,6 +16,7 @@ const Transactions: React.FC = () => {
     {
       variables: {
         input: {
+          page_size: pageSize.state,
           recipient_name: recipient.state,
           reviewer_name: reviewer.state,
           state: state.state,
@@ -23,6 +24,11 @@ const Transactions: React.FC = () => {
       },
     },
   );
+
+  console.log('---------------');
+  console.log(pageSize);
+  console.log(data?.transactions);
+  console.log('---------------');
 
   return (
     <EuiFlexGroup direction="column" gutterSize="xl">

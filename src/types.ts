@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 
 export interface AppState {
-  pageSize: StateMutable<10 | 25 | 100>
+  pageSize: StateMutable<PageSize>
   recipient: StateMutable<string | undefined>;
   reviewer: StateMutable<string | undefined>;
   state: StateMutable<string | undefined>;
@@ -13,11 +13,14 @@ export interface GetTransactionsData {
 
 export interface GetTransactionsArgs {
   input: {
+    page_size: PageSize;
     recipient_name?: string;
     reviewer_name?: string;
     state?: string;
   };
 }
+
+export type PageSize = 10 | 25 | 100;
 
 export interface ServerContext {
   dataSources: {

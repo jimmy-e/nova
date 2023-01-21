@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppState } from '@/types';
+import { AppState, PageSize } from '@/types';
 
 const initialAppState: AppState = {
   pageSize: {
@@ -23,7 +23,7 @@ const initialAppState: AppState = {
 const AppContext = React.createContext<AppState>(initialAppState);
 
 export const AppContextProvider = (props: object): React.ReactElement => {
-  const [pageSize, setPageSize] = React.useState<10 | 25 | 100>(10);
+  const [pageSize, setPageSize] = React.useState<PageSize>(10);
   const [recipient, setRecipient] = React.useState<string>();
   const [reviewer, setReviewer] = React.useState<string>();
   const [state, setState] = React.useState<string>();

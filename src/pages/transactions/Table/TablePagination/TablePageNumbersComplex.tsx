@@ -18,7 +18,7 @@ const TablePageNumbersComplex: React.FC<Props> = ({ nPages }) => {
   return (
     <EuiFlexGroup>
       {nArray(nPagesDisplay).map((n, id) => (
-        <EuiFlexItem grow={false}>
+        <EuiFlexItem key={`page-${id}`} grow={false}>
           <EuiButtonEmpty>{id + 1}</EuiButtonEmpty>
         </EuiFlexItem>
       ))}

@@ -15,7 +15,7 @@ const DropdownFilter: React.FC<Props> = ({ label, options, type }) => {
     <Dropdown
       label={label}
       options={options}
-      onChange={(value) => setState(value)}
+      onChange={(value) => setState(value as string)}
       value={state}
     />
   );

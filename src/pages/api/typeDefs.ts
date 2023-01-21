@@ -4,6 +4,7 @@ export default gql`
     # ----- INPUTS ----- #
     
     input TransactionsInput {
+        page_size: Int!
         recipient_name: String
         reviewer_name: String
         state: String

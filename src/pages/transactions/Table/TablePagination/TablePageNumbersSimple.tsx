@@ -9,7 +9,7 @@ interface Props {
 const TablePageNumbersSimple: React.FC<Props> = ({ nPages }) => (
   <EuiFlexGroup>
     {nArray(nPages).map((n, id) => (
-      <EuiFlexItem grow={false}>
+      <EuiFlexItem key={`page-${id}`} grow={false}>
         <EuiButtonEmpty>{id + 1}</EuiButtonEmpty>
       </EuiFlexItem>
     ))}

@@ -3,13 +3,17 @@ import { TransactionsQuery } from '@/types';
 const transactions: TransactionsQuery = (_, args, { dataSources }) => {
   const {
     // page,
-    // page_size,
+    page_size,
     recipient_name,
     reviewer_name,
     state,
   } = args.input;
 
-  let transactions = [...dataSources.mockDB];
+  console.log('-------------');
+  console.log(page_size);
+  console.log('-------------');
+
+  let transactions = [...dataSources.mockDB].slice(0, page_size);
 
   if (recipient_name) {
     transactions = transactions.filter(
