@@ -60,7 +60,7 @@ const Table: React.FC<Props> = ({ data }) => {
           <Row>
             {(columnKey) => (
               <Cell>
-                <TableCell columnKey={columnKey} item={item} />
+                <TableCell columnKey={columnKey as string} item={item} />
               </Cell>
             )}
           </Row>

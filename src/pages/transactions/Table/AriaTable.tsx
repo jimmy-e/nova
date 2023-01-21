@@ -16,7 +16,7 @@ const AriaTable: React.FC<TableStateProps<object>> = (props) => {
       <thead className={styles.thead}>
         {collection.headerRows.map((headerRow) => (
           <tr key={headerRow.key} className={styles.tr}>
-            {[...headerRow.childNodes].map((column) =>
+            {[...headerRow.childNodes as Array<any>].map((column) =>
               <th key={column.key} className={styles.th}>
                 <EuiText color="subdued">
                   {column.rendered}
@@ -27,7 +27,7 @@ const AriaTable: React.FC<TableStateProps<object>> = (props) => {
         ))}
       </thead>
       <tbody className={styles.tbody}>
-        {[...collection.body.childNodes].map((row) => (
+        {[...collection.body.childNodes as Array<any>].map((row) => (
           <tr key={row.key} className={styles.tr}>
             {[...row.childNodes].map((cell) => (
               <td key={cell.key} className={styles.td}>

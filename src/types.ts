@@ -44,24 +44,7 @@ export type TableCell = Record<string, string>;
 
 export type TableData = Array<Transaction>;
 
-export interface TableRow {
-  id: number;
-  invited_by: string;
-  last_updated: {
-    days_ago: string;
-    status: string;
-  };
-  recipient: {
-    email: string;
-    name: string;
-  };
-  reviewers: Array<string>;
-  template: {
-    child_name: string;
-    name: string;
-  };
-  unique_id: string;
-}
+export type TableRow = Record<string, number | string | Array<string> | TableCell>;
 
 export interface Transaction {
   id: string;

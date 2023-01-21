@@ -1,6 +1,6 @@
 import React from 'react';
 import { EuiText } from '@elastic/eui';
-import { TableRow } from '@/types';
+import { TableCell, TableRow } from '@/types';
 import TableCellInvitedBy from './TableCellInvitedBy';
 import TableCellLastUpdated from './TableCellLastUpdated';
 import TableCellRecipient from './TableCellRecipient';
@@ -18,19 +18,19 @@ const TableCell: React.FC<Props> = ({ columnKey, item }) => {
 
   switch (columnKey) {
     case 'invited_by':
-      return <TableCellInvitedBy cell={cell} />
+      return <TableCellInvitedBy cell={cell as string} />
     case 'last_updated':
-      return <TableCellLastUpdated cell={cell} />;
+      return <TableCellLastUpdated cell={cell as TableCell} />;
     case 'recipient':
-      return <TableCellRecipient cell={cell} />;
+      return <TableCellRecipient cell={cell as TableCell} />;
     case 'reviewers':
-      return <TableCellReviewer cell={cell} />;
+      return <TableCellReviewer cell={cell as Array<string>} />;
     case 'template':
-      return <TableCellTemplate cell={cell} />;
+      return <TableCellTemplate cell={cell as TableCell} />;
     case 'unique_id':
-      return <TableCellUniqueID cell={cell} />;
+      return <TableCellUniqueID cell={cell as string} />;
     default:
-      return <EuiText>{cell}</EuiText>;
+      return <EuiText>{cell as string}</EuiText>;
   }
 };
 
