@@ -4,12 +4,11 @@ import { EuiProvider } from '@elastic/eui';
 import Transactions from './transactions/Transactions';
 import styles from '@/styles/Home.module.css'
 import styleOverrides from '@/styles/styleOverrides';
-import Useful from './Useful/Useful';
 
 const App: React.FC =() => (
   <EuiProvider colorMode="light" modify={styleOverrides}>
     <div className={styles.main}>
-      <Useful />
+      <Transactions />
     </div>
   </EuiProvider>
 );
