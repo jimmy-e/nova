@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { EuiFlexGroup, EuiFlexItem } from '@elastic/eui';
-import { GET_TRANSACTIONS } from './queries/getTransactions';
+import { GET_TRANSACTIONS } from '@/queries/getTransactions';
 import { GetTransactionsData, GetTransactionsArgs } from '@/types';
 import { useAppContext } from '@/context/appContext';
 import Filters from './filters/Filters';
