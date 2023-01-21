@@ -2,14 +2,14 @@ import { v4 as uuidv4 } from 'uuid';
 import { Transaction } from '@/types';
 import { shuffle } from 'lodash';
 import { faker } from '@faker-js/faker'
-import { reviewer, state } from '@/constants';
+import { reviewers, states } from '@/constants';
 import { arrayRandom, randomN } from '@/utils';
 
 const generateTransaction = (): Transaction => {
   const recipientName = faker.name.fullName();
 
   const nReviewers = randomN(5);
-  const reviewers = shuffle(reviewer).slice(0, nReviewers).map((reviewer) => reviewer.value);
+  const finalReviewers = shuffle(reviewers).slice(0, nReviewers).map((reviewer) => reviewer.value);
 
   return {
     id: uuidv4(),
@@ -20,9 +20,9 @@ const generateTransaction = (): Transaction => {
     invited_by: faker.name.fullName(),
     latest_state_change_at: faker.date.between('2022-12-01', '2022-12-31').toISOString(),
     progress: randomN(5),
-    reviewer_names: reviewers,
+    reviewer_names: finalReviewers,
     sender_entity_handle: faker.internet.email(),
-    state: arrayRandom(state).value,
+    state: arrayRandom(states).value,
     template_name: faker.internet.domainWord(),
   };
 };

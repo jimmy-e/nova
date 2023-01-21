@@ -3,5 +3,7 @@
   border-radius: 32px;
   display: flex;
   flex-direction: column;
+  height: 1100px;
   padding: 32px;
+  width: 2000px;
 }

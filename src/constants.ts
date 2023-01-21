@@ -1,7 +1,7 @@
 export const maxPageDisplay = 7;
 export const pageSize = 10;
 
-export const reviewer = [
+export const reviewers = [
   { label: 'Tom Cruise', value: 'tomCruise' },
   { label: 'Keanu Reeves', value: 'keanuReeves' },
   { label: 'Emma Stone', value: 'emmaStone' },
@@ -9,7 +9,7 @@ export const reviewer = [
   { label: 'Sandra Bullock', value: 'sandraBullock' },
 ];
 
-export const state = [
+export const states = [
   { label: 'Created', value: 'created' },
   { label: 'Invited', value: 'invited' },
   { label: 'In Progress', value: 'inProgress' },

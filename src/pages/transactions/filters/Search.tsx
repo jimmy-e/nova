@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { EuiFieldText, EuiFormControlLayout } from '@elastic/eui';
+import { useAppContext } from '@/context/appContext';
 import styles from './Search.module.css';
 
 const Search: React.FC = () => {
-  const [searchValue, setSearchValue] = useState<string>();
+  const { state, setState } = useAppContext().recipient;
 
   let formControlProps: Record<string, Record<string, () => void>> = {};
 
-  if (searchValue) {
+  if (state) {
     formControlProps.clear = {
-      onClick: () => setSearchValue('')
+      onClick: () => setState('')
     };
   }
 
@@ -17,9 +18,9 @@ const Search: React.FC = () => {
     <EuiFormControlLayout className="search-bar-form-control" {...formControlProps}>
       <EuiFieldText
         className={styles.fieldText}
-        onChange={(event) => setSearchValue(event.target.value)}
+        onChange={(event) => setState(event.target.value)}
         placeholder="Start your search..."
-        value={searchValue}
+        value={state}
       />
     </EuiFormControlLayout>
   );

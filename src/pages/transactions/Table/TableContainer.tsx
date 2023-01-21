@@ -1,20 +1,31 @@
 import React from 'react';
 import { TableData } from '@/types';
-import { EuiFlexGroup, EuiFlexItem } from '@elastic/eui';
+import { EuiFlexGroup, EuiFlexItem, EuiLoadingSpinner } from '@elastic/eui';
 import Table from './Table';
 import TablePagination from './TablePagination/TablePagination';
 import { pageSize } from '@/constants';
 import styles from './TableContainer.module.css';
 
 interface Props {
-  data: TableData;
+  data?: TableData;
+  loading: boolean;
 }
 
-const TableContainer: React.FC<Props> = ({ data }) => {
+const TableContainer: React.FC<Props> = ({ data, loading }) => {
+  if (loading || !data) {
+    return (
+      <EuiFlexGroup className={styles.container} alignItems="center" justifyContent="center">
+        <EuiFlexItem grow={false}>
+          <EuiLoadingSpinner size="xxl"/>
+        </EuiFlexItem>
+      </EuiFlexGroup>
+    );
+  }
+
   const finalTableData = data.slice(0, pageSize);
 
   return (
-    <EuiFlexGroup className={styles.container} direction="column">
+    <EuiFlexGroup className={styles.container} direction="column" justifyContent="spaceBetween">
       <EuiFlexItem grow={false}>
         <Table data={finalTableData} />
       </EuiFlexItem>

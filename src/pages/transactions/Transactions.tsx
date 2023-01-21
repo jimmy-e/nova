@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { useLazyQuery } from '@apollo/client';
-import { EuiFlexGroup, EuiFlexItem, EuiLoadingSpinner } from '@elastic/eui';
+import React from 'react';
+import { useQuery } from '@apollo/client';
+import { EuiFlexGroup, EuiFlexItem } from '@elastic/eui';
 import { GET_TRANSACTIONS } from './queries/getTransactions';
 import { GetTransactionsData, GetTransactionsArgs } from '@/types';
 import { useAppContext } from '@/context/appContext';
@@ -9,24 +9,20 @@ import Header from './Header';
 import TableContainer from './Table/TableContainer';
 
 const Transactions: React.FC = () => {
-  const { search } = useAppContext();
+  const { recipient, reviewer, state } = useAppContext();
 
-  const [getTransactions, { data, loading }] = useLazyQuery<GetTransactionsData, GetTransactionsArgs>(
+  const { data, loading } = useQuery<GetTransactionsData, GetTransactionsArgs>(
     GET_TRANSACTIONS,
     {
       variables: {
         input: {
-          recipient_name: 'sample-recipient-name',
-          reviewer_name: 'sample-reviewer-name',
-          state: 'sample-state',
+          recipient_name: recipient.state,
+          reviewer_name: reviewer.state,
+          state: state.state,
         },
       },
     },
   );
-
-  useEffect(() => {
-    getTransactions();
-  }, []);
 
   return (
     <EuiFlexGroup direction="column" gutterSize="xl">
@@ -37,10 +33,7 @@ const Transactions: React.FC = () => {
         <Filters />
       </EuiFlexItem>
       <EuiFlexItem grow={false}>
-        {loading || !data
-          ? <EuiLoadingSpinner size="xl" />
-          : <TableContainer data={data.transactions} />
-        }
+        <TableContainer data={data?.transactions} loading={loading}/>
       </EuiFlexItem>
     </EuiFlexGroup>
   );

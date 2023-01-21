@@ -1,10 +1,9 @@
 import { Dispatch, SetStateAction } from 'react';
 
 export interface AppState {
-  search: {
-    state?: string;
-    setState: Dispatch<SetStateAction<string | undefined>>;
-  };
+  recipient: StateMutable<string>;
+  reviewer: StateMutable<string>;
+  state: StateMutable<string>;
 }
 
 export interface GetTransactionsData {
@@ -23,6 +22,11 @@ export interface ServerContext {
   dataSources: {
     mockDB: TableData;
   };
+}
+
+export interface StateMutable<T> {
+  state?: T;
+  setState: Dispatch<SetStateAction<T | undefined>>;
 }
 
 export type TableCell = Record<string, string>;
@@ -60,12 +64,4 @@ export interface Transaction {
   template_name: string;
 }
 
-export type TransactionsQuery = (_: undefined, args: TransactionsArgs, context: ServerContext) => TableData;
-
-export interface TransactionsArgs {
-  page: number;
-  page_size: number;
-  recipient_name: string;
-  reviewer_name: string;
-  state: string;
-}
+export type TransactionsQuery = (_: undefined, args: GetTransactionsArgs, context: ServerContext) => TableData;
