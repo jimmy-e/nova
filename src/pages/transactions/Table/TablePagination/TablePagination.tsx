@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { EuiFlexGroup, EuiFlexItem, EuiButtonEmpty, EuiText } from '@elastic/eui';
 import { useAppContext } from '@/context/appContext';
 import TablePageNumbers from './TablePageNumbers';
@@ -6,6 +6,12 @@ import TablePageNumbers from './TablePageNumbers';
 const TablePagination: React.FC = () => {
   const { pageNumber, pageSize, validEntries } = useAppContext().pagination;
   const nPages = Math.ceil(validEntries.state / pageSize.state);
+
+  useEffect(() => {
+    if (pageNumber.state > nPages) {
+      pageNumber.setState(nPages);
+    }
+  }, [pageNumber, nPages]);
 
   const handleNext = () => {
     if (pageNumber.state < nPages) {
