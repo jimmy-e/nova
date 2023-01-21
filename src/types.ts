@@ -5,10 +5,11 @@ export interface AppState {
   recipient: StateMutable<string | undefined>;
   reviewer: StateMutable<string | undefined>;
   state: StateMutable<string | undefined>;
+  validEntries: StateMutable<number>;
 }
 
 export interface GetTransactionsData {
-  transactions: TableData;
+  transactions: TransactionsData;
 }
 
 export interface GetTransactionsArgs {
@@ -68,4 +69,9 @@ export interface Transaction {
   template_name: string;
 }
 
-export type TransactionsQuery = (_: undefined, args: GetTransactionsArgs, context: ServerContext) => TableData;
+export type TransactionsData = {
+  transactions: TableData;
+  valid_entries: number;
+}
+
+export type TransactionsQuery = (_: undefined, args: GetTransactionsArgs, context: ServerContext) => TransactionsData;

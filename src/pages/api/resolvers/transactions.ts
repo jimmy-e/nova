@@ -9,11 +9,7 @@ const transactions: TransactionsQuery = (_, args, { dataSources }) => {
     state,
   } = args.input;
 
-  console.log('-------------');
-  console.log(page_size);
-  console.log('-------------');
-
-  let transactions = [...dataSources.mockDB].slice(0, page_size);
+  let transactions = [...dataSources.mockDB];
 
   if (recipient_name) {
     transactions = transactions.filter(
@@ -31,7 +27,12 @@ const transactions: TransactionsQuery = (_, args, { dataSources }) => {
     transactions = transactions.filter((transaction) => transaction.state === state);
   }
 
-  return transactions;
+  let transactionsPage = [...transactions].slice(0, page_size);
+
+  return {
+    transactions: transactionsPage,
+    valid_entries: transactions.length,
+  };
 }
 
 export default transactions;

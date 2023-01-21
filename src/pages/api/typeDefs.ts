@@ -26,10 +26,15 @@ export default gql`
         state: String!
         template_name: String!
     }
+    
+    type TransactionsData {
+        transactions: [Transaction!]!
+        valid_entries: Int!
+    }
 
     # ----- QUERY ----- #
     
     type Query {
-        transactions(input: TransactionsInput): [Transaction!]!
+        transactions(input: TransactionsInput): TransactionsData!
     }
 `;

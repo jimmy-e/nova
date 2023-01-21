@@ -18,6 +18,10 @@ const initialAppState: AppState = {
     setState: () => {},
     state: undefined,
   },
+  validEntries: {
+    setState: () => {},
+    state: 0,
+  },
 };
 
 const AppContext = React.createContext<AppState>(initialAppState);
@@ -27,6 +31,7 @@ export const AppContextProvider = (props: object): React.ReactElement => {
   const [recipient, setRecipient] = React.useState<string>();
   const [reviewer, setReviewer] = React.useState<string>();
   const [state, setState] = React.useState<string>();
+  const [validEntries, setValidEntries] = React.useState<number>(0);
 
   return (
     <AppContext.Provider
@@ -46,6 +51,10 @@ export const AppContextProvider = (props: object): React.ReactElement => {
         state: {
           setState,
           state,
+        },
+        validEntries: {
+          setState: setValidEntries,
+          state: validEntries,
         },
       }}
       {...props}

@@ -9,11 +9,18 @@ import Header from './Header';
 import TableContainer from './Table/TableContainer';
 
 const Transactions: React.FC = () => {
-  const { pageSize, recipient, reviewer, state } = useAppContext();
+  const {
+    pageSize,
+    recipient,
+    reviewer,
+    state,
+    validEntries,
+  } = useAppContext();
 
   const { data, loading } = useQuery<GetTransactionsData, GetTransactionsArgs>(
     GET_TRANSACTIONS,
     {
+      onCompleted: (result) => validEntries.setState(result.transactions.valid_entries),
       variables: {
         input: {
           page_size: pageSize.state,
@@ -25,11 +32,6 @@ const Transactions: React.FC = () => {
     },
   );
 
-  console.log('---------------');
-  console.log(pageSize);
-  console.log(data?.transactions);
-  console.log('---------------');
-
   return (
     <EuiFlexGroup direction="column" gutterSize="xl">
       <EuiFlexItem grow={false}>
@@ -39,7 +41,7 @@ const Transactions: React.FC = () => {
         <Filters />
       </EuiFlexItem>
       <EuiFlexItem grow={false}>
-        <TableContainer data={data?.transactions} loading={loading} pageSize={pageSize.state}/>
+        <TableContainer data={data?.transactions.transactions} loading={loading} />
       </EuiFlexItem>
     </EuiFlexGroup>
   );

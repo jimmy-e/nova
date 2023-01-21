@@ -8,10 +8,9 @@ import styles from './TableContainer.module.css';
 interface Props {
   data?: TableData;
   loading: boolean;
-  pageSize: number;
 }
 
-const TableContainer: React.FC<Props> = ({ data, loading, pageSize }) => {
+const TableContainer: React.FC<Props> = ({ data, loading }) => {
   if (loading || !data) {
     return (
       <EuiFlexGroup className={styles.container} alignItems="center" justifyContent="center">
@@ -22,15 +21,13 @@ const TableContainer: React.FC<Props> = ({ data, loading, pageSize }) => {
     );
   }
 
-  const finalTableData = data.slice(0, pageSize);
-
   return (
     <EuiFlexGroup className={styles.container} direction="column" justifyContent="spaceBetween">
       <EuiFlexItem grow={false}>
-        <Table data={finalTableData} />
+        <Table data={data} />
       </EuiFlexItem>
       <EuiFlexItem grow={false}>
-        <TablePagination dataLength={data.length} />
+        <TablePagination />
       </EuiFlexItem>
     </EuiFlexGroup>
   );

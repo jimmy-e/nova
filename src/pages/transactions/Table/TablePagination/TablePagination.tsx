@@ -5,13 +5,9 @@ import { useAppContext } from '@/context/appContext';
 import TablePageNumbersComplex from './TablePageNumbersComplex';
 import TablePageNumbersSimple from './TablePageNumbersSimple';
 
-interface Props {
-  dataLength: number;
-}
-
-const TablePagination: React.FC<Props> = ({ dataLength }) => {
-  const { pageSize } = useAppContext();
-  const nPages = Math.ceil(dataLength / pageSize.state);
+const TablePagination: React.FC = () => {
+  const { validEntries, pageSize } = useAppContext();
+  const nPages = Math.ceil(validEntries.state / pageSize.state);
 
   return (
     <EuiFlexGroup justifyContent="spaceBetween">
