@@ -10,12 +10,12 @@ const TableCellTemplate: React.FC<Props> = ({ cell }) => (
   <EuiFlexGroup direction="column" gutterSize="xs">
     <EuiFlexItem grow={false}>
       <EuiText>
-        <b>{cell.name}</b>
+        <b>{cell?.name}</b>
       </EuiText>
     </EuiFlexItem>
     <EuiFlexItem grow={false}>
       <EuiText size="xs">
-        {cell.child_name}
+        {cell?.child_name}
       </EuiText>
     </EuiFlexItem>
   </EuiFlexGroup>

@@ -13,15 +13,15 @@ const TableCellLastUpdated: React.FC<Props> = ({ cell }) => (
   <EuiFlexGroup direction="column" gutterSize="xs">
     <EuiFlexItem grow={false}>
       <EuiText
-        className={styles[stateColors[cell.status]]}
-        color={cell.status === 'invited' ? 'subdued' : undefined}
+        className={styles[stateColors[cell?.status]]}
+        color={cell?.status === 'invited' ? 'subdued' : undefined}
       >
-        <b>{startCase(cell.status)}</b>
+        <b>{startCase(cell?.status)}</b>
       </EuiText>
     </EuiFlexItem>
     <EuiFlexItem grow={false}>
       <EuiText size="xs">
-        {cell.days_ago}
+        {cell?.days_ago}
       </EuiText>
     </EuiFlexItem>
   </EuiFlexGroup>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAppContext } from '@/context/appContext';
-import Dropdown from '@/pages/transactions/components/Dropdown';
+import Dropdown from '@/components/Dropdown';
 
 interface Props {
   label: string;
@@ -8,7 +8,7 @@ interface Props {
   type: 'reviewer' | 'state';
 }
 
-const DropdownFilter: React.FC<Props> = ({ label, options, type }) => {
+const DropdownFilter: React.FC<Props> = ({ label, options, type = 'reviewer' }) => {
   const { state, setState } = useAppContext().filters[type];
 
   return (

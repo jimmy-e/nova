@@ -13,7 +13,7 @@ interface Props {
   item: TableRow;
 }
 
-const TableCell: React.FC<Props> = ({ columnKey, item }) => {
+const TableCell: React.FC<Props> = ({ columnKey, item = {} }) => {
   const cell = item[columnKey];
 
   switch (columnKey) {

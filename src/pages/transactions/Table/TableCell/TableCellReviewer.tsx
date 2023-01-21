@@ -8,7 +8,7 @@ interface Props {
 
 const TableCellReviewer: React.FC<Props> = ({ cell }) => (
   <EuiFlexGroup gutterSize="xs">
-    {cell.map((reviewer, id) => (
+    {cell?.map((reviewer, id) => (
       <EuiFlexItem key={`${reviewer}-${id}`} grow={false}>
         <Reviewer reviewer={reviewer} />
       </EuiFlexItem>

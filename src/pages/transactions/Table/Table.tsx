@@ -25,7 +25,7 @@ const Table: React.FC<Props> = ({ data }) => {
     { name: 'Unique ID', uid: 'unique_id' },
   ];
 
-  const rows = data.map((transaction, id): TableRow => {
+  const rows = data?.map((transaction, id): TableRow => {
     return {
       id: id + 1,
       invited_by: transaction.invited_by,
