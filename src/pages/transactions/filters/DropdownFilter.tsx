@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAppContext } from '@/context/appContext';
-import Dropdown from '@/components/Dropdown';
+import Dropdown from '@/components/Dropdown/Dropdown';
 
 interface Props {
   label: string;

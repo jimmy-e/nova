@@ -6,7 +6,7 @@ import { GetTransactionsData, GetTransactionsArgs } from '@/types';
 import { useAppContext } from '@/context/appContext';
 import Filters from './filters/Filters';
 import Header from './Header';
-import TableContainer from './Table/TableContainer';
+import TableContainer from '@/components/Table/TableContainer';
 
 const Transactions: React.FC = () => {
   const { filters, pagination } = useAppContext();

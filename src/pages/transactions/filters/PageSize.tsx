@@ -1,5 +1,5 @@
 import React from 'react';
-import Dropdown from '@/components/Dropdown';
+import Dropdown from '@/components/Dropdown/Dropdown';
 import { useAppContext } from '@/context/appContext';
 import { PageSize } from '@/types';
 
