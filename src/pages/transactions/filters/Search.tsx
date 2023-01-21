@@ -4,7 +4,7 @@ import { useAppContext } from '@/context/appContext';
 import styles from './Search.module.css';
 
 const Search: React.FC = () => {
-  const { state, setState } = useAppContext().recipient;
+  const { state, setState } = useAppContext().filters.recipient;
 
   let formControlProps: Record<string, Record<string, () => void>> = {};
 

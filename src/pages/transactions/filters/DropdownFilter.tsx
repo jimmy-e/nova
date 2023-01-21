@@ -9,7 +9,7 @@ interface Props {
 }
 
 const DropdownFilter: React.FC<Props> = ({ label, options, type }) => {
-  const { state, setState } = useAppContext()[type];
+  const { state, setState } = useAppContext().filters[type];
 
   return (
     <Dropdown

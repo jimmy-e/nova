@@ -2,25 +2,29 @@ import React from 'react';
 import { AppState, PageSize } from '@/types';
 
 const initialAppState: AppState = {
-  pageSize: {
-    setState: () => {},
-    state: 10,
+  filters: {
+    recipient: {
+      setState: () => {},
+      state: undefined,
+    },
+    reviewer: {
+      setState: () => {},
+      state: undefined,
+    },
+    state: {
+      setState: () => {},
+      state: undefined,
+    },
   },
-  recipient: {
-    setState: () => {},
-    state: undefined,
-  },
-  reviewer: {
-    setState: () => {},
-    state: undefined,
-  },
-  state: {
-    setState: () => {},
-    state: undefined,
-  },
-  validEntries: {
-    setState: () => {},
-    state: 0,
+  pagination: {
+    pageSize: {
+      setState: () => {},
+      state: 10,
+    },
+    validEntries: {
+      setState: () => {},
+      state: 0,
+    },
   },
 };
 
@@ -36,25 +40,29 @@ export const AppContextProvider = (props: object): React.ReactElement => {
   return (
     <AppContext.Provider
       value={{
-        pageSize: {
-          setState: setPageSize,
-          state: pageSize,
+        filters: {
+          recipient: {
+            setState: setRecipient,
+            state: recipient,
+          },
+          reviewer: {
+            setState: setReviewer,
+            state: reviewer,
+          },
+          state: {
+            setState,
+            state,
+          },
         },
-        recipient: {
-          setState: setRecipient,
-          state: recipient,
-        },
-        reviewer: {
-          setState: setReviewer,
-          state: reviewer,
-        },
-        state: {
-          setState,
-          state,
-        },
-        validEntries: {
-          setState: setValidEntries,
-          state: validEntries,
+        pagination: {
+          pageSize: {
+            setState: setPageSize,
+            state: pageSize,
+          },
+          validEntries: {
+            setState: setValidEntries,
+            state: validEntries,
+          },
         },
       }}
       {...props}

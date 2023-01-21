@@ -1,11 +1,15 @@
 import { Dispatch, SetStateAction } from 'react';
 
 export interface AppState {
-  pageSize: StateMutable<PageSize>
-  recipient: StateMutable<string | undefined>;
-  reviewer: StateMutable<string | undefined>;
-  state: StateMutable<string | undefined>;
-  validEntries: StateMutable<number>;
+  filters: {
+    recipient: StateMutable<string | undefined>;
+    reviewer: StateMutable<string | undefined>;
+    state: StateMutable<string | undefined>;
+  };
+  pagination: {
+    pageSize: StateMutable<PageSize>
+    validEntries: StateMutable<number>;
+  };
 }
 
 export interface GetTransactionsData {

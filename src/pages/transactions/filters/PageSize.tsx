@@ -10,7 +10,7 @@ const pageSizeOptions = [
 ];
 
 const PageSize: React.FC = () => {
-  const { setState, state } = useAppContext().pageSize;
+  const { setState, state } = useAppContext().pagination.pageSize;
 
   return (
     <Dropdown

@@ -9,24 +9,18 @@ import Header from './Header';
 import TableContainer from './Table/TableContainer';
 
 const Transactions: React.FC = () => {
-  const {
-    pageSize,
-    recipient,
-    reviewer,
-    state,
-    validEntries,
-  } = useAppContext();
+  const { filters, pagination } = useAppContext();
 
   const { data, loading } = useQuery<GetTransactionsData, GetTransactionsArgs>(
     GET_TRANSACTIONS,
     {
-      onCompleted: (result) => validEntries.setState(result.transactions.valid_entries),
+      onCompleted: (result) => pagination.validEntries.setState(result.transactions.valid_entries),
       variables: {
         input: {
-          page_size: pageSize.state,
-          recipient_name: recipient.state,
-          reviewer_name: reviewer.state,
-          state: state.state,
+          page_size: pagination.pageSize.state,
+          recipient_name: filters.recipient.state,
+          reviewer_name: filters.reviewer.state,
+          state: filters.state.state,
         },
       },
     },

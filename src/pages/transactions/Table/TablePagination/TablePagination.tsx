@@ -6,7 +6,7 @@ import TablePageNumbersComplex from './TablePageNumbersComplex';
 import TablePageNumbersSimple from './TablePageNumbersSimple';
 
 const TablePagination: React.FC = () => {
-  const { validEntries, pageSize } = useAppContext();
+  const { validEntries, pageSize } = useAppContext().pagination;
   const nPages = Math.ceil(validEntries.state / pageSize.state);
 
   return (
@@ -32,7 +32,6 @@ const TablePagination: React.FC = () => {
         </EuiButtonEmpty>
       </EuiFlexItem>
     </EuiFlexGroup>
-
   );
 };
 
