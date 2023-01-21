@@ -1,6 +1,14 @@
 import { gql } from 'graphql-tag';
 
 export default gql`
+    # ----- INPUTS ----- #
+    
+    input TransactionsInput {
+        recipient_name: String
+        reviewer_name: String
+        state: String
+    }
+    
     # ----- TYPES ----- #
     
     type Transaction {
@@ -21,6 +29,6 @@ export default gql`
     # ----- QUERY ----- #
     
     type Query {
-        transactions(params: String): [Transaction!]!
+        transactions(input: TransactionsInput): [Transaction!]!
     }
 `;

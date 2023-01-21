@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const GET_TRANSACTIONS = gql`
-  query transactions {
-      transactions(params: "foo") {
+  query transactions($input: TransactionsInput) {
+      transactions(input: $input) {
           id
           created_at
           first_recipient_completed_at

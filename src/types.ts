@@ -1,5 +1,4 @@
 import { Dispatch, SetStateAction } from 'react';
-import {daysAgo} from '@/utils';
 
 export interface AppState {
   search: {
@@ -10,6 +9,14 @@ export interface AppState {
 
 export interface GetTransactionsData {
   transactions: TableData;
+}
+
+export interface GetTransactionsArgs {
+  input: {
+    recipient_name?: string;
+    reviewer_name?: string;
+    state?: string;
+  };
 }
 
 export interface ServerContext {
