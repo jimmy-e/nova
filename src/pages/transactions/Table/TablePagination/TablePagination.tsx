@@ -1,9 +1,7 @@
 import React from 'react';
 import { EuiFlexGroup, EuiFlexItem, EuiButtonEmpty, EuiText } from '@elastic/eui';
-import { maxPageDisplay } from '@/constants';
 import { useAppContext } from '@/context/appContext';
-import TablePageNumbersComplex from './TablePageNumbersComplex';
-import TablePageNumbersSimple from './TablePageNumbersSimple';
+import TablePageNumbers from './TablePageNumbers';
 
 const TablePagination: React.FC = () => {
   const { pageNumber, pageSize, validEntries } = useAppContext().pagination;
@@ -21,8 +19,6 @@ const TablePagination: React.FC = () => {
     }
   };
 
-  console.log('page number: ', pageNumber.state);
-
   return (
     <EuiFlexGroup justifyContent="spaceBetween">
       <EuiFlexItem grow={false}>
@@ -33,10 +29,7 @@ const TablePagination: React.FC = () => {
         </EuiButtonEmpty>
       </EuiFlexItem>
       <EuiFlexItem grow={false}>
-        {maxPageDisplay < nPages
-          ? <TablePageNumbersComplex nPages={nPages} />
-          : <TablePageNumbersSimple nPages={nPages} />
-        }
+        <TablePageNumbers nPages={nPages} />
       </EuiFlexItem>
       <EuiFlexItem grow={false}>
         <EuiButtonEmpty disabled={pageNumber.state === nPages} onClick={handleNext}>

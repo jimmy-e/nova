@@ -1,5 +1,3 @@
-export const maxPageDisplay = 7;
-
 export const reviewers = [
   { label: 'Tom Cruise', value: 'tomCruise' },
   { label: 'Keanu Reeves', value: 'keanuReeves' },

@@ -13,7 +13,7 @@
 }
 
 .th:nth-child(1), .td:nth-child(1) {
-  width: 112px;
+  width: 140px;
 }
 
 .th:nth-child(2), .td:nth-child(2) {
@@ -33,9 +33,16 @@
 }
 
 .th:nth-child(6), .td:nth-child(6) {
-  padding-right: 12px !important;
   text-align: right !important;
   width: 374px;
+}
+
+.th:nth-child(6) {
+  padding-right: 28px !important;
+}
+
+.td:nth-child(6) {
+  padding-right: 12px !important;
 }
 
 .thead {
